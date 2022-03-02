@@ -1,0 +1,56 @@
+{
+  "workOrderStore": {
+    "name": "WorkOrder",
+    "destination": ".wo",
+    "sync": true,
+    "i18nKey": "DownloadingWorkOrdersData",
+    "definingRequest": {
+      "WorkOrderList": "/WorkOrderListSet?$filter=Gewrk eq '{WorkPlace}' {WorkOrders}",
+      "WorkOrderGenObs": "/WorkOrderGenObsSet?$expand=WorkOrderGenObs_nav&$filter=Gewrk eq '{WorkPlace}'",
+      "WorkOrderLocSet": "/DefectsByLocSet?$expand=Def_Loc_nav/WOAttachmentSet_nav&$filter=Gewrk eq '{WorkPlace}'",
+      "WorkOrderOpSet": "/WorkOrderOpSet?$expand=MeasuremDocSet_nav&$filter=Gewrk eq '{WorkPlace}'",
+      "OperationNotifSet": "/WorkOrderOpNotificationSet?$filter=WorkPlace eq '{WorkPlace}' {WorkOrdersOperations}",
+      "WONumListSet": "/WONumListSet?$expand=UbTecByWONumSet_nav&$filter=Gewrk eq '{WorkPlace}'",
+      "WorkOrderBundles": "/PersonalHabilitadoSet",
+      "ActivityLogSet": "/ActivityLogSet",
+      "WorkOrderAttachSet": "/WODocAttachmentSet?$filter={WorkOrdersAttach} and NoAttach eq true"
+    },
+    "refreshSubset": [
+      "WorkOrderBundles",
+      "ActivityLogSet",
+      "WorkOrderAttachSet"
+    ]
+  },
+  "masterStore": {
+    "name": "MasterData",
+    "destination": ".master",
+    "sync": false,
+    "i18nKey": "DownloadingMasterData",
+    "definingRequest": {
+      "WorkPlaceMaster": "/WorkPlaceMasterSet",
+      "WorkOrderUbTecSet": "/WorkOrderUbTecSet?$expand=CatalogXUbTec_nav&$filter=Gewrk eq '{WorkPlace}'",
+      "DefectsSubCatalogSet": "/DefectsSubCatalogSet",
+      "DefPriorSet": "/DefPriorSet",
+      "OpStatusSet": "/OpStatusSet",
+      "EamlShMarkerElemSet": "/EamlShMarkerElemSet?$filter=Werks eq '{Werks}'",
+      "MTSSet":"/MTSElemSet?$filter=Company eq '{Company}' and Tcuad eq '{Tcuad}'"
+    },
+    "refreshSubset": []
+  },
+  "atsStore": {
+    "name": "AtsData",
+    "destination": ".ats",
+    "sync": true,
+    "i18nKey": "DownloadingAtsData",
+    "definingRequest": {
+      "ATSMasterSet": "/ATSMasterSet",
+      "ATSAssignmentSet": "/ATSAssignmentSet?$filter=Gewrk eq '{WorkPlace}' {WorkOrders}",
+      "SignatureATSSet": "/SignatureATSSet",
+      "HeaderATS": "/HeaderAtsSet?$filter=Gewrk eq '{WorkPlace}' {WorkOrders}",
+      "MTSAssignment": "/MTSAssignmentSet"
+    },
+    "refreshSubset": [
+      "ATSMasterSet"
+    ]
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "_version": "1.7.0",
+  "sap.app": {
+    "id": "manifesttransenermovilidad",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "sourceTemplate": {
+      "id": "servicecatalog.connectivityComponent",
+      "version": "0.0.0"
+    },
+    "dataSources": {
+      "Z_WORK_ORDERS_SRV": {
+        "uri": "/sap/opu/odata/sap/Z_WORK_ORDERS_SRV/",
+        "type": "OData",
+        "settings": {
+          "odataVersion": "2.0",
+          "localUri": "localService/metadata.xml"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    },
+    "supportedThemes": [
+      "sap_hcb",
+      "sap_belize"
+    ]
+  },
+  "sap.ui5": {
+    "rootView": {
+      "viewName": "manifesttest.view.View1",
+      "type": "JS"
+    },
+    "dependencies": {
+      "minUI5Version": "1.30.0",
+      "libs": {
+        "sap.ui.core": {},
+        "sap.m": {},
+        "sap.ui.layout": {},
+        "sap.ushell": {},
+        "sap.collaboration": {},
+        "sap.ui.comp": {},
+        "sap.uxap": {},
+        "sap.ui.unified": {
+          "minVersion": ""
+        }
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "manifesttest.i18n.i18n"
+        }
+      }
+    },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
+    "routing": {
+      "config": {
+        "routerClass": "sap.m.routing.Router",
+        "viewType": "JS",
+        "viewPath": "TransenerMovilidad.view",
+        "controlId": "app",
+        "controlAggregation": "pages"
+      },
+      "routes": [
+        {
+          "pattern": "",
+          "name": "WorkPlaceSelector",
+          "target": "WorkPlaceSelector",
+          "id": "WorkPlaceSelector"
+        },
+        {
+          "pattern": "WorkOrderList",
+          "name": "WorkOrderList",
+          "target": "WorkOrderList",
+          "id": "WorkOrderList"
+        },
+        {
+          "pattern": "detail/{workOrderId}/:?query:",
+          "name": "WorkOrderDetail",
+          "target": "WorkOrderDetail",
+          "id": "WorkOrderDetail"
+        },
+        {
+          "pattern": "newDefectStation/:defectId:",
+          "name": "NewDefectStation",
+          "target": "NewDefectStation"
+        },
+        {
+          "pattern": "newDefectLine",
+          "name": "NewDefectLine",
+          "target": "NewDefectLine"
+        }
+      ],
+      "targets": {
+        "WorkPlaceSelector": {
+          "viewName": "workPlace.workPlaceSelector.workPlaceSelector",
+          "viewId": "WorkPlaceSelector"
+        },
+        "WorkOrderList": {
+          "viewName": "workOrder.workOrderList.workOrderList",
+          "viewId": "WorkOrderList"
+        },
+        "WorkOrderDetail": {
+          "viewName": "workOrder.workOrderDetail.workOrderDetail",
+          "viewId": "WorkOrderDetail"
+        },
+        "NewDefectStation": {
+          "viewName": "defects.stations.newDefect",
+          "viewId": "NewDefectStation"
+        }
+      }
+    }
+  },
+  "sap.platform.hcp": {
+    "uri": "",
+    "_version": "1.1.0"
+  }
+}

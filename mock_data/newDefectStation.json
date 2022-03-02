@@ -1,0 +1,61 @@
+{
+	"TechnicalLocation": "",
+	"AffectedPart": [{
+		"name": "Torre",
+		"subparts": [{
+			"name": "Aumento"
+		}, {
+			"name": "Uña"
+		}, {
+			"name": "Cerramiento"
+		}]
+	}, {
+		"name": "Estación",
+		"subparts": [{
+			"name": "Transformador"
+		}, {
+			"name": "Poste"
+		}, {
+			"name": "Interruptor"
+		}]
+	}, {
+		"name": "Aislamiento",
+		"subparts": [{
+			"name": "Grapa"
+		}, {
+			"name": "Horquilla"
+		}, {
+			"name": "Rótula"
+		}]
+	}],
+	"AffectedSubPart": [{
+		"name": "Aumento"
+	}, {
+		"name": "Uña"
+	}, {
+		"name": "Cerramiento"
+	}],
+	"ResultOf": [{
+		"name": "Ocasional"
+	}, {
+		"name": "Mantenimiento"
+	}, {
+		"name": "Interruptor"
+	}],
+	"Description": "",
+	"Criticality": [{
+		"name": "Alta"
+	}, {
+		"name": "Media"
+	}, {
+		"name": "Baja"
+	}],
+	"Station": [{
+		"name": "St-1"
+	}, {
+		"name": "St-2"
+	}, {
+		"name": "St-3"
+	}],
+	"Attachments": [{}]
+}

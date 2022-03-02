@@ -1,0 +1,5 @@
+{
+  "ImageTypeAllowed": ["JPEG", "PNG"],
+  "FileLimit": 3,
+  "MaxSizePerImage": 1000000
+}

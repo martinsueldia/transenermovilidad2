@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.transener.movilidad" version="1.44.65" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>SAP Movilidad Mant.</name>
+    <description>Transener - Movilidad</description>
+    <author email="lgaitan@inclusion.cloud" href="http://www.sap.com">SAP Product and Innovation</author>
+    <content src="index.html"/>
+    <access origin="*"/>
+    <allow-intent href="http://*/*"/>
+    <allow-intent href="https://*/*"/>
+    <allow-intent href="tel:*"/>
+    <allow-intent href="sms:*"/>
+    <allow-intent href="mailto:*"/>
+    <allow-intent href="geo:*"/>
+    <preference name="SAPKapselHandleX509Challenges" value="false"/>
+    <platform name="android">
+        <icon density="ldpi" src="res/icon/icon_transener.png"/>
+        <icon density="mdpi" src="res/icon/icon_transener.png"/>
+        <icon density="hdpi" src="res/icon/icon_transener.png"/>
+        <icon density="xhdpi" src="res/icon/icon_transener.png"/>
+        <splash density="land-ldpi" src="res/screen/android/splash-land-ldpi.png"/>
+        <splash density="port-ldpi" src="res/screen/android/splash-port-ldpi.png"/>
+        <splash density="land-mdpi" src="res/screen/android/splash-land-mdpi.png"/>
+        <splash density="port-mdpi" src="res/screen/android/splash-port-mdpi.png"/>
+        <splash density="land-hdpi" src="res/screen/android/splash-land-hdpi.png"/>
+        <splash density="port-hdpi" src="res/screen/android/splash-port-hdpi.png"/>
+        <splash density="land-xhdpi" src="res/screen/android/splash-land-xhdpi.png"/>
+        <splash density="port-xhdpi" src="res/screen/android/splash-port-xhdpi.png"/>
+    </platform>
+    <platform name="ios">
+        <icon height="57" src="res/icon/icon_ios_57.png" width="57"/>
+        <icon height="72" src="res/icon/icon_ios_72.png" width="72"/>
+        <icon height="114" src="res/icon/icon_ios_114.png" width="114"/>
+        <icon height="144" src="res/icon/icon_ios_144.png" width="144"/>
+        <splash height="480" src="res/screen/ios/Default~iphone.png" width="320"/>
+        <splash height="960" src="res/screen/ios/Default@2x~iphone.png" width="640"/>
+        <splash height="1024" src="res/screen/ios/Default-Portrait~ipad.png" width="768"/>
+        <splash height="2048" src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536"/>
+        <splash height="768" src="res/screen/ios/Default-Landscape~ipad.png" width="1024"/>
+        <splash height="1536" src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048"/>
+        <splash height="1136" src="res/screen/ios/Default-568h@2x~iphone.png" width="640"/>
+        <splash height="1334" src="res/screen/ios/Default-667h.png" width="750"/>
+        <splash height="2208" src="res/screen/ios/Default-736h.png" width="1142"/>
+    </platform>
+    <platform name="windows"/>
+    <platform name="android">
+        <preference name="Fullscreen" value="false"/>
+        <preference name="Orientation" value="default"/>
+        <preference name="ShowTitle" value="false"/>
+        <preference name="LogLevel" value="VERBOSE"/>
+        <preference name="LoadUrlTimeout" value="80000"/>
+        <preference name="UrlScheme" value=""/>
+        <preference name="android-minSdkVersion" value="16"/>
+        <preference name="android-targetSdkVersion" value="26"/>
+        <activity android:windowSoftInputMode="stateVisible|adjustResize"/>
+    </platform>
+    <preference name="sap-development-version" value="0.0.1"/>
+    <preference name="hybridapprevision" value="1"/>
+    <preference name="SplashScreen" value="screen"/>
+    <preference name="SplashScreenDelay" value="5000"/>
+    <engine name="android" spec="^6.2.3"/>
+    <plugin name="cordova-dji-integration" spec="~0.0.1"/>
+    <plugin name="cordova-plugin-android-permissions" spec="~0.11.0"/>
+    <plugin name="cordova-plugin-device" spec="~2.0.2"/>
+    <plugin name="cordova-plugin-file" spec="^4.3.3"/>
+    <plugin name="cordova-plugin-geolocation" spec="~2.4.3"/>
+    <plugin name="cordova-plugin-network-information" spec="~2.0.1"/>
+    <plugin name="cordova-plugin-whitelist" spec="1"/>
+    <plugin name="cordova-sqlite-ext" spec="~2.2.0"/>
+    <plugin name="cordova-usb-listener" spec="~0.0.1"/>
+    <plugin name="kapsel-plugin-logger" spec="~3.15.0"/>
+    <plugin name="kapsel-plugin-logon" spec="~3.15.0"/>
+    <plugin name="kapsel-plugin-odata" spec="~3.15.0"/>
+    <plugin name="kapsel-plugin-settings" spec="~3.15.0"/>
+</widget>

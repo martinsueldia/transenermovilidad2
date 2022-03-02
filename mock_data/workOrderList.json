@@ -1,0 +1,604 @@
+{
+   "WorkOrderList":[
+      {
+         "OrderNumber":12345768,
+         "Description":"Reperación de torre 1",
+         "OrderType":"Inspeccion Aérea 5MJ2K3",
+         "StartDate":"10/10/2018",
+         "EndDate":"20/10/2018",
+         "Supervisor":"Lucas Gaitan",
+         "Applicant":"Pedro Perez",
+         "Status":"P",
+         "TechnicalLocation":"Torre 1 - Valentin Alsina - Region Norte",
+         "Week":"10/2018",
+         "Risks":[
+            {
+               "Name":"Caída de altura",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            },
+            {
+               "Name":"Herida cortante",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            }
+         ],
+         "Observations":[
+            {
+               "ByUser":"Tú",
+               "Comment":"Este es un ejemplo largo de observación anterior en el que se puede observar como el texto es cortado por ocupar mas de una linea, y que por lo tanto se cortara mostrando un 'ellipsis'(3 puntos consecutivos), al hacerle click a este mensaje se vera todo el mensaje completo por lo que se podra leer esto sin tener que preocuparse. Lorem ipsum dolor sit amet, turpis libero id eget donec, amet dignissim faucibus ultricies, eleifend eu ac quis, commodo inceptos tortor placerat purus ipsum. Nec varius eu, egestas mauris in ut. Sodales vitae eu, quis ultrices tellus nec orci et, non quis lacinia. Dui venenatis volutpat dolor amet vel, orci nunc, fringilla aenean ut non donec, nullam volutpat dapibus augue eget est. Ipsum aenean non convallis est vivamus at, dui parturient, quis ante mauris orci quisque pharetra maecenas, vel elit vel.",
+               "Date":"10/01/2018"
+            },
+            {
+               "ByUser":"Sebastian Gutierrez",
+               "Comment":"Este es un ejemplo de observación anterior",
+               "Date":"10/01/2018"
+            }
+         ],
+         "Operations":[
+            {
+               "OperationNumber":"0010",
+               "OperationDescription":"Revisión de area 5MPCU2-1",
+               "CountSubOperations":7,
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "Status": 1,
+                     "resultRequired": true
+                  },
+                  {
+                     "SubOperationNumber":"0020",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "Status": 2,
+                     "resultRequired": false
+                  },
+                  {
+                     "SubOperationNumber":"0030",
+                     "SubOperationDescription":"Tomar medida de ruta",
+                     "Status": 3,
+                     "resultRequired": true
+                  },
+                  {
+                     "SubOperationNumber":"0040",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "Status": 4,
+                     "resultRequired": false
+                  },
+                  {
+                     "SubOperationNumber":"0050",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "Status": 5,
+                     "resultRequired": false
+                  },
+                  {
+                     "SubOperationNumber":"0060",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "Status": 6,
+                     "resultRequired": true
+                  },
+                  {
+                     "SubOperationNumber":"0070",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "Status": 0,
+                     "resultRequired": true
+                  }
+               ]
+            },
+            {
+               "OperationNumber":"0020",
+               "OperationDescription":"Inspección de area 5MPCU2-12",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "EquipmentDescription":"Andamio 1",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "resultRequired": true
+                  }
+               ]
+            }
+         ],
+         "Equipments":[
+            {
+               "EquipmentCode":"BBMKC-1",
+               "EquipmentDescription":"Andamio 1",
+               "Defects":[
+                  {
+                     "Id": "0626",
+                     "Description":"Nido sobre cadena",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  },
+                  {
+                     "Id": "0627",
+                     "Description":"Aislamiento roto",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  }
+               ]
+            },
+            {
+               "EquipmentCode":"BBMKC-7",
+               "EquipmentDescription":"Andamio 7",
+               "Defects":[
+
+               ]
+            }
+         ]
+      },
+      {
+         "OrderNumber":12345768,
+         "Description":"Reparación de líneas y transformadores",
+         "OrderType":"Inspeccion Aérea 5MJ2K3",
+         "StartDate":"10/10/2018",
+         "EndDate":"20/10/2018",
+         "Supervisor":"Lucas Gaitan",
+         "Applicant":"Pedro Perez",
+         "Status":"F",
+         "TechnicalLocation":"Torre 1 - Valentin Alsina - Region Norte",
+         "Week":"10/2018",
+         "Observations":[
+
+         ],
+         "Risks":[
+            {
+               "Name":"Caída de altura",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            },
+            {
+               "Name":"Golpes",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            }
+         ],
+         "Operations":[
+            {
+               "OperationNumber":"0010",
+               "OperationDescription":"Revisión de area 5MPCU2-1",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "resultRequired": true
+                  }
+               ]
+            },
+            {
+               "OperationNumber":"0020",
+               "OperationDescription":"Inspección de area 5MPCU2-12",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"F",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "resultRequired": true
+                  }
+               ]
+            }
+         ],
+         "Equipments":[
+            {
+               "EquipmentCode":"BBMKC-1",
+               "EquipmentDescription":"Andamio 1",
+               "Defects":[
+                  {
+                     "Id": "0626",
+                     "Description":"Nido sobre cadena",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  },
+                  {
+                     "Id": "0627",
+                     "Description":"Aislamiento roto",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  }
+               ]
+            },
+            {
+               "EquipmentCode":"BBMKC-7",
+               "EquipmentDescription":"Andamio 7",
+               "Defects":[
+
+               ]
+            }
+         ]
+      },
+      {
+         "OrderNumber":12345768,
+         "Description":"Revisión",
+         "OrderType":"Inspeccion Aérea 5MJ2K3",
+         "StartDate":"10/10/2018",
+         "EndDate":"20/10/2018",
+         "Supervisor":"Lucas Gaitan",
+         "Applicant":"Pedro Perez",
+         "Status":"P",
+         "TechnicalLocation":"Torre 1 - Valentin Alsina - Region Norte",
+         "Week":"10/2018",
+         "Observations":[
+
+         ],
+         "Risks":[
+            {
+               "Name":"Caída de altura",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            }
+         ],
+         "Operations":[
+            {
+               "OperationNumber":"0010",
+               "OperationDescription":"Revisión de area 5MPCU2-1",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "resultRequired": true
+                  }
+               ]
+            },
+            {
+               "OperationNumber":"0020",
+               "OperationDescription":"Inspección de area 5MPCU2-12",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta"
+                  }
+               ]
+            }
+         ],
+         "Equipments":[
+            {
+               "EquipmentCode":"BBMKC-1",
+               "EquipmentDescription":"Andamio 1",
+               "Defects":[
+                  {
+                     "Id": "0626",
+                     "Description":"Nido sobre cadena",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  },
+                  {
+                     "Id": "0627",
+                     "Description":"Aislamiento roto",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  }
+               ]
+            },
+            {
+               "EquipmentCode":"BBMKC-7",
+               "EquipmentDescription":"Andamio 7",
+               "Defects":[
+
+               ]
+            }
+         ]
+      },
+      {
+         "OrderNumber":12345768,
+         "Description":"Reparación de líneas y transformadores",
+         "OrderType":"Inspeccion Aérea 5MJ2K3",
+         "StartDate":"10/10/2018",
+         "EndDate":"20/10/2018",
+         "Supervisor":"Lucas Gaitan",
+         "Applicant":"Pedro Perez",
+         "Status":"F",
+         "TechnicalLocation":"Torre 1 - Valentin Alsina - Region Norte",
+         "Week":"10/2018",
+         "Observations":[
+
+         ],
+         "Risks":[
+            {
+               "Name":"Caída de altura",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            }
+         ]
+      },
+      {
+         "OrderNumber":12345768,
+         "Description":"Reparación de líneas y transformadores",
+         "OrderType":"Inspeccion Aérea 5MJ2K3",
+         "StartDate":"10/10/2018",
+         "EndDate":"20/10/2018",
+         "Supervisor":"Lucas Gaitan",
+         "Applicant":"Pedro Perez",
+         "Status":"S",
+         "TechnicalLocation":"Torre 1 - Valentin Alsina - Region Norte",
+         "Week":"10/2018",
+         "Observations":[
+
+         ],
+         "Risks":[
+            {
+               "Name":"Caída de altura",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            },
+            {
+               "Name":"Golpes",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            },
+            {
+               "Name":"Esfuerzos",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            }
+         ],
+         "Operations":[
+            {
+               "OperationNumber":"0010",
+               "OperationDescription":"Revisión de area 5MPCU2-1",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "resultRequired": true
+                  }
+               ]
+            },
+            {
+               "OperationNumber":"0020",
+               "OperationDescription":"Inspección de area 5MPCU2-12",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta",
+                     "resultRequired": false
+                  }
+               ]
+            }
+         ],
+         "Equipments":[
+            {
+               "EquipmentCode":"BBMKC-1",
+               "EquipmentDescription":"Andamio 1",
+               "Defects":[
+                  {
+                     "Id": "0626",
+                     "Description":"Nido sobre cadena",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  },
+                  {
+                     "Id": "0627",
+                     "Description":"Aislamiento roto",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  }
+               ]
+            },
+            {
+               "EquipmentCode":"BBMKC-7",
+               "EquipmentDescription":"Andamio 7",
+               "Defects":[
+
+               ]
+            }
+         ]
+      },
+      {
+         "OrderNumber":12345768,
+         "Description":"Reparación de líneas y transformadores",
+         "OrderType":"Inspeccion Aérea 5MJ2K3",
+         "StartDate":"10/10/2018",
+         "EndDate":"20/10/2018",
+         "Supervisor":"Lucas Gaitan",
+         "Applicant":"Pedro Perez",
+         "Status":"F",
+         "TechnicalLocation":"Torre 1 - Valentin Alsina - Region Norte",
+         "Week":"10/2018",
+         "Observations":[
+
+         ],
+         "Risks":[
+            {
+               "Name":"Caída de altura",
+               "Description":"TS-PG 01",
+               "Elements":[
+                  {
+                     "Description":"Arnés de Seguridad"
+                  },
+                  {
+                     "Description":"Casco"
+                  }
+               ]
+            }
+         ],
+         "Operations":[
+            {
+               "OperationNumber":"0010",
+               "OperationDescription":"Revisión de area 5MPCU2-1",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta"
+                  }
+               ]
+            },
+            {
+               "OperationNumber":"0020",
+               "OperationDescription":"Inspección de area 5MPCU2-12",
+               "Equipment":{
+                  "EquipmentCode":"BBMKC-1",
+                  "EquipmentDescription":"Andamio 1"
+               },
+               "OperationStatus":"P",
+               "CountSubOperations":1,
+               "SubOperations":[
+                  {
+                     "SubOperationNumber":"0010",
+                     "SubOperationDescription":"Ejecutar ruta adjunta"
+                  }
+               ]
+            }
+         ],
+         "Equipments":[
+            {
+               "EquipmentCode":"BBMKC-1",
+               "EquipmentDescription":"Andamio 1",
+               "Defects":[
+                  {
+                     "Id": "0626",
+                     "Description":"Nido sobre cadena",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  },
+                  {
+                     "Id": "0627",
+                     "Description":"Aislamiento roto",
+                     "Criticality":0,
+                     "Folder":2545,
+                     "Location":"Gral. Barrio",
+                     "Status":"Reparado"
+                  }
+               ]
+            },
+            {
+               "EquipmentCode":"BBMKC-7",
+               "EquipmentDescription":"Andamio 7",
+               "Defects":[
+
+               ]
+            }
+         ]
+      }
+   ]
+}

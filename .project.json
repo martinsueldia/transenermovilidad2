@@ -1,0 +1,424 @@
+{
+  "generation": [
+    {
+      "templateId": "ui5template.emptyMobileProjectKapsel",
+      "templateVersion": "1.28.1",
+      "dateTimeStamp": "Fri, 26 Jan 2018 14:40:29 GMT"
+    },
+    {
+      "templateId": "ui5template.basicSAPUI5ApplicationComponent",
+      "templateVersion": "1.4.0",
+      "dateTimeStamp": "Wed, 07 Feb 2018 22:00:33 GMT"
+    },
+    {
+      "templateId": "servicecatalog.connectivityComponent",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Tue, 05 Jun 2018 14:16:59 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "projectType": [
+    "com.sap.webide.hybrid.cordova",
+    "sap.watt.uitools.ide.fiori"
+  ],
+  "hcpdeploy": {
+    "account": "d635e7898",
+    "name": "transenermovilidad",
+    "lastVersionWeTriedToDeploy": "0.0.3"
+  },
+  "hybrid": {
+    "appname": "TransenerMovilidad",
+    "appid": "com.transener.movilidad",
+    "appdesc": "Transener - Movilidad",
+    "appversion": "0.0.1",
+    "debugMode": true,
+    "appIcon": {
+      "defaultIcon": "",
+      "defaultIconData": "",
+      "ios": {
+        "ios8Iphone": "",
+        "ios7Iphone": "",
+        "ios7Ipad": "",
+        "ios61Iphone": "",
+        "ios61Ipad": ""
+      },
+      "android": {
+        "ldpi": "",
+        "mdpi": "",
+        "hdpi": "",
+        "xhdpi": ""
+      },
+      "windows": {
+        "s44": "",
+        "s71": "",
+        "s106": "",
+        "s150": "",
+        "s50": "",
+        "w310": ""
+      },
+      "windows10": {
+        "s44": "",
+        "s71": "",
+        "s106": "",
+        "s150": "",
+        "s50": "",
+        "w310": ""
+      }
+    },
+    "appSplash": {
+      "enable": true,
+      "defaultLSplashData": "",
+      "defaultPSplashData": "",
+      "delayTime": "1000",
+      "ios": {
+        "iphone": "",
+        "iphone2x": "",
+        "portIpad": "",
+        "portIpad2x": "",
+        "landIpad": "",
+        "landIpad2x": "",
+        "iphone52x": "",
+        "iphone6": "",
+        "iphone6plus": ""
+      },
+      "android": {
+        "landhdpi": "",
+        "porthdpi": "",
+        "landldpi": "",
+        "portldpi": "",
+        "landmdpi": "",
+        "portmdpi": "",
+        "landxhdpi": "",
+        "portxhdpi": ""
+      },
+      "windows": {
+        "s100": "",
+        "s140": "",
+        "s240": ""
+      },
+      "windows10": {
+        "s100": "",
+        "s140": "",
+        "s240": ""
+      }
+    },
+    "kapselLogon": {
+      "type": "",
+      "logo": "./img/logo-transener.svg",
+      "logoText": "Proyecto de Movilidad 0.1 (beta)",
+      "background": "",
+      "disablePasscode": true,
+      "hideLogoCopyright": true
+    },
+    "useAppDescriptor4UI5Libs": false,
+    "localBuild": {
+      "useCustomLib": false,
+      "customLibFile": ""
+    },
+    "cloudBuild": {
+      "androidSigning": {
+        "debug": {
+          "keystore": "C:\\TransenerMovilidad.jks",
+          "storePassword": "tatovp22",
+          "alias": "TransenerMovilidad",
+          "password": "tatovp22",
+          "keystoreType": "jks"
+        },
+        "release": {
+          "keystore": "C:\\TransenerMovilidad.jks",
+          "storePassword": "tatovp22",
+          "alias": "TransenerMovilidad",
+          "password": "tatovp22",
+          "keystoreType": "jks"
+        }
+      },
+      "iosSigning": "",
+      "clearCache": true,
+      "tiles": "single",
+      "applications": [],
+      "push": false,
+      "androidPlatformId": 305001,
+      "iosPlatformId": 108101,
+      "verboseLogs": false,
+      "downloadProject": true,
+      "disablePrivacyScreen": false,
+      "offlineIni": ""
+    },
+    "msType": 0,
+    "server": "mobile-da40b6a1b.us2.hana.ondemand.com",
+    "port": "443",
+    "hcpmsServer": "mobile-da40b6a1b.us2.hana.ondemand.com",
+    "hybridRevision": "1",
+    "mime": {
+      "path": "",
+      "root": ""
+    },
+    "platform": {
+      "ios": {
+        "selected": false,
+        "preferences": {
+          "Fullscreen": false,
+          "Orientation": "all",
+          "EnableViewportScale": false,
+          "UrlScheme": ""
+        }
+      },
+      "android": {
+        "selected": true,
+        "preferences": {
+          "Fullscreen": true,
+          "Orientation": "default",
+          "ShowTitle": false,
+          "LogLevel": "VERBOSE",
+          "LoadUrlTimeout": "80000",
+          "UrlScheme": ""
+        }
+      },
+      "windows": {
+        "selected": false,
+        "preferences": {
+          "Fullscreen": false,
+          "Orientation": "default",
+          "ShowTitle": false,
+          "LogLevel": ""
+        },
+        "preferencesWin10": {
+          "Fullscreen": false,
+          "Orientation": "default",
+          "ShowTitle": false,
+          "LogLevel": ""
+        }
+      }
+    },
+    "plugins": {
+      "cordova": {
+        "device": {
+          "selected": true,
+          "registry": "cordova-plugin-device",
+          "localBuild": true
+        },
+        "network": {
+          "selected": true,
+          "registry": "cordova-plugin-network-information",
+          "localBuild": true
+        },
+        "battery": {
+          "selected": false,
+          "registry": "cordova-plugin-battery-status",
+          "localBuild": true
+        },
+        "accelerometer": {
+          "selected": false,
+          "registry": "cordova-plugin-device-motion",
+          "localBuild": true
+        },
+        "compass": {
+          "selected": false,
+          "registry": "cordova-plugin-device-orientation",
+          "localBuild": true
+        },
+        "geolocation": {
+          "selected": true,
+          "registry": "cordova-plugin-geolocation",
+          "localBuild": true
+        },
+        "camera": {
+          "selected": true,
+          "registry": "cordova-plugin-camera",
+          "localBuild": true
+        },
+        "capture": {
+          "selected": false,
+          "registry": "cordova-plugin-media-capture",
+          "localBuild": true
+        },
+        "media": {
+          "selected": false,
+          "registry": "cordova-plugin-media",
+          "localBuild": true
+        },
+        "file": {
+          "selected": true,
+          "registry": "cordova-plugin-file",
+          "localBuild": true
+        },
+        "transfer": {
+          "selected": false,
+          "registry": "cordova-plugin-file-transfer",
+          "localBuild": true
+        },
+        "dialogs": {
+          "selected": false,
+          "registry": "cordova-plugin-dialogs",
+          "localBuild": true
+        },
+        "vibration": {
+          "selected": false,
+          "registry": "cordova-plugin-vibration",
+          "localBuild": true
+        },
+        "contacts": {
+          "selected": false,
+          "registry": "cordova-plugin-contacts",
+          "localBuild": true
+        },
+        "globalization": {
+          "selected": false,
+          "registry": "cordova-plugin-globalization",
+          "localBuild": true
+        },
+        "splashscreen": {
+          "selected": false,
+          "registry": "cordova-plugin-splashscreen",
+          "localBuild": true
+        },
+        "inappbrowser": {
+          "selected": false,
+          "registry": "cordova-plugin-inappbrowser",
+          "localBuild": true
+        },
+        "console": {
+          "selected": false,
+          "registry": "cordova-plugin-console",
+          "localBuild": true
+        },
+        "statusbar": {
+          "selected": false,
+          "registry": "cordova-plugin-statusbar",
+          "localBuild": true
+        }
+      },
+      "kapsel": {
+        "logon": {
+          "selected": true,
+          "registry": "kapsel-plugin-logon",
+          "localBuild": true
+        },
+        "appupdate": {
+          "selected": false,
+          "registry": "kapsel-plugin-appupdate",
+          "localBuild": true
+        },
+        "logger": {
+          "selected": false,
+          "registry": "kapsel-plugin-logger",
+          "localBuild": true
+        },
+        "settings": {
+          "selected": true,
+          "registry": "kapsel-plugin-settings",
+          "localBuild": true
+        },
+        "push": {
+          "selected": false,
+          "registry": "kapsel-plugin-push",
+          "localBuild": true
+        },
+        "encryptedstorage": {
+          "selected": false,
+          "registry": "kapsel-plugin-encryptedstorage",
+          "localBuild": true
+        },
+        "authproxy": {
+          "selected": false,
+          "registry": "kapsel-plugin-authproxy",
+          "localBuild": true
+        },
+        "barcode": {
+          "selected": false,
+          "registry": "kapsel-plugin-barcodescanner",
+          "localBuild": true
+        },
+        "odata": {
+          "selected": true,
+          "registry": "kapsel-plugin-odata",
+          "localBuild": true
+        },
+        "e2etrace": {
+          "selected": false,
+          "registry": "kapsel-plugin-e2etrace",
+          "localBuild": true
+        },
+        "calendar": {
+          "selected": false,
+          "registry": "nl.x-services.plugins.calendar",
+          "localBuild": true
+        },
+        "voicerecord": {
+          "selected": false,
+          "registry": "kapsel-plugin-voicerecording",
+          "localBuild": true
+        },
+        "attachmentviewer": {
+          "selected": false,
+          "registry": "kapsel-plugin-attachmentviewer",
+          "localBuild": true
+        },
+        "printer": {
+          "selected": false,
+          "registry": "de.appplant.cordova.plugin.printer",
+          "localBuild": true
+        }
+      },
+      "custom": {
+        "dji-integration": {
+          "selected": true,
+          "registry": "cordova-dji-integration",
+          "localBuild": true
+        },
+        "Cordova sqlite storage plugin with extra features": {
+          "selected": true,
+          "registry": "cordova-sqlite-ext",
+          "localBuild": true
+        },
+        "cordova-usb-listener": {
+          "selected": true,
+          "registry": "cordova-usb-listener",
+          "localBuild": true
+        },
+        "Permissions": {
+          "selected": true,
+          "registry": "cordova-plugin-android-permissions",
+          "localBuild": true
+        }
+      }
+    },
+    "SelectedPlugins": [],
+    "oDataConfigs": [
+      {
+        "hybridOdata": {
+          "name": "Z_WORK_ORDERS_SRV",
+          "serviceUrl": "https://mobile-da40b6a1b.us2.hana.ondemand.com:443/com.transener.movilidad/"
+        },
+        "originOdata": {
+          "name": "Z_WORK_ORDERS_SRV",
+          "serviceUrl": "/sap/opu/odata/sap/Z_WORK_ORDERS_SRV/"
+        },
+        "oDataType": "smpodata"
+      }
+    ]
+  },
+  "mockpreview": {
+    "mockUri": "/sap/opu/odata/sap/Z_WORK_ORDERS_SRV",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "beautifier": {
+    "keep_array_indentation": false,
+    "break_chained_methods": false,
+    "space_before_conditional": true,
+    "unescape_strings": false,
+    "tab_size": "1",
+    "max_preserve_newlines": "2",
+    "wrap_line_length": "140",
+    "brace_style": "collapse"
+  }
+}

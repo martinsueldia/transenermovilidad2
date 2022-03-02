@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+
+    <script src="resources/sap-ui-core.js"
+            id="sap-ui-bootstrap"
+            data-sap-ui-libs="sap.m,sap.ui.unified,sap.ui.thirdparty"
+            data-sap-ui-xx-lesssupport="true" data-sap-ui-resourceroots='{"TransenerMovilidad": "./"}'
+            data-sap-ui-theme="sap_bluecrystal">
+    </script>
+
+    <link id="less" rel="stylesheet/less" type="text/css" href="less/all.less"/>
+
+	<script type="text/javascript" src="scripts/lz-string.min.js"></script>
+	<script type="text/javascript" charset="utf-8" src="resources/sap/ui/thirdparty/datajs.js"></script>
+    <script type="text/javascript" src="devapp.js"></script>
+
+    <script>
+        TransenerMovilidad.devapp.initialize();
+    </script>
+
+    <script type="text/javascript" src="cordova.js"></script>
+</head>
+<body class="sapUiBody" role="application">
+    <div id="loading-content">
+        <div class="center">
+            <img class="companyImg" src="img/logo-transener-transba.svg">
+            <div class="sk-folding-cube">
+                <div class="sk-cube1 sk-cube"></div>
+                <div class="sk-cube2 sk-cube"></div>
+                <div class="sk-cube4 sk-cube"></div>
+                <div class="sk-cube3 sk-cube"></div>
+            </div>
+            <div class="loadingText">Iniciando Aplicación...</div>
+        </div>
+    </div>
+    <div id="content">
+    </div>
+</body>
+</html>

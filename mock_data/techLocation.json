@@ -1,0 +1,14 @@
+{
+	"TechLocationList": [
+		{ "Id": "856-1",
+			"Description": "Puesto something lorem ipsum"
+		},
+			{ "Id": "857-2",
+			"Description": "Puesto something lorem ipsum"
+		},
+			{ "Id": "858-1",
+			"Description": "Puesto something lorem ipsum"
+		}
+		
+		]
+}

@@ -1,0 +1,121 @@
+{
+  "Tables": [
+    {
+      "tableName": "MEASURE_POINTS ",
+      "columns": [
+        {
+          "column_name": "ID",
+          "data_type": "INTEGER PRIMARY KEY AUTOINCREMENT,"
+        },
+        {
+          "column_name": "AUFNR",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "IUPOZ",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "VORNR",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "MEASUREMENT_POINT",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "MDOCM",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "RECORDED_VALUE",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "READER",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "READING_DATE",
+          "data_type": "DATE,"
+        },
+        {
+          "column_name": "READING_TIME",
+          "data_type": "DATE,"
+        },
+        {
+          "column_name": "RECORDED_UNIT",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "SECONDARY_INDEX",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "SHORT_TEXT",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "SINCRO",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "WO_OBJECT_NUMBER",
+          "data_type": "VARCHAR(255)"
+        }
+      ]
+    },
+    {
+      "tableName": "ATTACHMENTS ",
+      "columns": [
+        {
+          "column_name": "ID",
+          "data_type": "INTEGER PRIMARY KEY AUTOINCREMENT,"
+        },
+        {
+          "column_name": "ATTACH_ID",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "ATTACHMENT_NAME",
+          "data_type": "VARCHAR(255)"
+        }
+      ]
+    },
+    {
+      "tableName": "NOTIFICATIONS ",
+      "columns": [
+        {
+          "column_name": "ID",
+          "data_type": "INTEGER PRIMARY KEY AUTOINCREMENT,"
+        },
+        {
+          "column_name": "AUFNR",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "IUPOZ",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "VORNR",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "NOTIFICATION_TEXT",
+          "data_type": "VARCHAR(255),"
+        },
+        {
+          "column_name": "SUBSTATUS",
+          "data_type": "VARCHAR(255),"
+        }
+      ],
+      "constraints": [
+        {
+          "constraint_name": "aufnr_iupoz_vorn_repeated",
+          "constraint_columns": "(AUFNR,IUPOZ,VORNR)"
+        }
+      ]
+    }
+  ]
+}

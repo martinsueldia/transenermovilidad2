@@ -1,0 +1,157 @@
+{
+  "Risks": [{
+    "Id": "01",
+    "Description": "Caída de Altura"
+  }, {
+    "Id": "02",
+    "Description": "Caída a Nivel"
+  }, {
+    "Id": "03",
+    "Description": "Herida Cortante"
+  }, {
+    "Id": "04",
+    "Description": "Golpes"
+  }, {
+    "Id": "05",
+    "Description": "Proy de Partículas"
+  }, {
+    "Id": "06",
+    "Description": "Shock Eléctrico"
+  }, {
+    "Id": "07",
+    "Description": "Verificación  distancia Seguridad (para Poda)"
+  }, {
+    "Id": "08",
+    "Description": "Riesgos Particulares  tareas T.C.T."
+  }, {
+    "Id": "09",
+    "Description": "Inducción (asenso a estructuras )"
+  }, {
+    "Id": "10",
+    "Description": "Ruidos"
+  }, {
+    "Id": "11",
+    "Description": "Esfuerzos"
+  }, {
+    "Id": "12",
+    "Description": "Quemaduras por calor"
+  }, {
+    "Id": "13",
+    "Description": "Inhalación de Gases Tóxicos"
+  }, {
+    "Id": "14",
+    "Description": "Salpicadura de Hidrocarburo"
+  }, {
+    "Id": "15",
+    "Description": "Salpicadura de  Ácidos/ Químicos"
+  }, {
+    "Id": "16",
+    "Description": "Salpicadura de Hidrocarburo"
+  }, {
+    "Id": "17",
+    "Description": "Zona Inundada Hasta 1,30 mts"
+  }, {
+    "Id": "18",
+    "Description": "Zona  Inundada  mas  de 1,30 mts"
+  }, {
+    "Id": "19",
+    "Description": "Picadura de insectos"
+  }, {
+    "Id": "20",
+    "Description": "Picaduras de  Ofidios"
+  }, {
+    "Id": "21",
+    "Description": "Picaduras de  arácnidos"
+  }, {
+    "Id": "22",
+    "Description": "Embestido por Terceros"
+  }, {
+    "Id": "23",
+    "Description": "Daño a Terceros"
+  }, {
+    "Id": "24",
+    "Description": "Contaminación  a suelo"
+  }, {
+    "Id": "25",
+    "Description": "Cuidado del Ambiente"
+  }, {
+    "Id": "26",
+    "Description": "Radiación UV (Rayos Solares)"
+  }, {
+    "Id": "27",
+    "Description": "Radiación Láser Clase 3B / 4"
+  }, {
+    "Id": "28",
+    "Description": "Manipulación de Productos Químicos"
+  }],
+  "Elements": [{
+    "Id": "P1",
+    "Description": "Arnés de Seguridad / c doble Cola/ Casco"
+  }, {
+    "Id": "P2",
+    "Description": "Calzado de Seguridad"
+  }, {
+    "Id": "P3",
+    "Description": "Guantes/Mangas/ Pierneras"
+  }, {
+    "Id": "P4",
+    "Description": "Cascos/ Guantes"
+  }, {
+    "Id": "P5",
+    "Description": "Prot. Ocular / Prot. Facial/ casco"
+  }, {
+    "Id": "P6",
+    "Description": "Herramientas  aisladas/ G dieléctricos / Pértigas/ Botines dieléctricos /  casco / Señalización"
+  }, {
+    "Id": "P7",
+    "Description": "NO"
+  }, {
+    "Id": "P8",
+    "Description": "Herramientas  TCT Traje / Botines Conductivos"
+  }, {
+    "Id": "P9",
+    "Description": "Botines conductivos"
+  }, {
+    "Id": "P10",
+    "Description": "Protección auditiva"
+  }, {
+    "Id": "P11",
+    "Description": "Protección Lumbar"
+  }, {
+    "Id": "P12",
+    "Description": "Delantal / Polainas/ Protección  Facial"
+  }, {
+    "Id": "P13",
+    "Description": "Protección respiratoria"
+  }, {
+    "Id": "P14",
+    "Description": "Delantal de  Acrilo nitrilo Guantes de  Acrilonitrilo Prot. Facial"
+  }, {
+    "Id": "P15",
+    "Description": "Waders"
+  }, {
+    "Id": "P16",
+    "Description": "Vestimenta de Neopreno"
+  }, {
+    "Id": "P17",
+    "Description": "Repelente"
+  }, {
+    "Id": "P18",
+    "Description": "Botas de caña larga / Piernera /Polainas"
+  }, {
+    "Id": "P19",
+    "Description": "Guantes "
+  }, {
+    "Id": "P20",
+    "Description": "Señalización / Vallado "
+  }, {
+    "Id": "P21",
+    "Description": "Protección solar grado 50 "
+  }, {
+    "Id": "P22",
+    "Description": "Protección ocular específico para tipo de Láser 3B o 4 "
+  }, {
+    "Id": "P22",
+    "Description": "Lo que indiquen los  Procedimientos, o las Hojas de Seguridad del producto. Para los productos químicos de venta libre regirán las precauciones enunciadas en el prospecto o el envase."
+  }]
+}
