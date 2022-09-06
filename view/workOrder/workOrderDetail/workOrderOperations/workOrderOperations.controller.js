@@ -203,8 +203,6 @@ sap.ui.define(
 
                 _onSelectFiles: function (oEvent) {
                     //TODO mandar de id file un generado que el indice sea el array.
-
-                    //
                     BusyDialogHelper.open();
                     let oFile = oEvent.getParameters().files[0];
                     oEvent.getSource().setValue("");

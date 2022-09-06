@@ -101,12 +101,12 @@ module.exports = function (grunt) {
                         'start ' + $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/platforms/android/app/build/outputs/apk/release'
                     ].join('&&')
                 },
-                gitPull: {
-                    command: [
-                        'cd ' + $RootFolder + '/transenermovilidad',
-                        'git pull origin develop'
-                    ].join('&&')
-                },
+               // gitPull: {
+                //    command: [
+                //        'cd ' + $RootFolder + '/transenermovilidad',
+                //        'git pull origin develop'
+                //    ].join('&&')
+                //},
                 build: {
                     command: [
                         'cd /',
@@ -187,7 +187,7 @@ module.exports = function (grunt) {
     // grunt.registerTask('buildQAS', ['copy:env', 'copy:build']);
     grunt.registerTask('setEnvironment', ['copy:env']);
     grunt.registerTask('changeVersion', ['xmlpoke']);
-    grunt.registerTask('downloadChangesFromGit', ['shell:gitPull']);
+    grunt.registerTask('downloadChangesFromGit');//, //['shell:gitPull']);
     grunt.registerTask('build', ['shell:build', 'copy:renameDebug']);
     grunt.registerTask('build-release', ['uglify', 'shell:buildRelease', 'copy:renameRelease', 'clean']);
     // grunt.registerTask('build-release2', ['shell:build', 'copy:renameRelease', 'clean']);

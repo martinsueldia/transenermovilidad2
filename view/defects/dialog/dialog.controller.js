@@ -5,7 +5,7 @@ sap.ui.define([
 ], function (Dialog, MasterDataService, Controller) {
 
     "use strict";
-    //
+    
     return Controller.extend("TransenerMovilidad.view.defects.dialog.dialog", {
         _onPressItem: function (oEvent) {
             let oSelected = oEvent.getSource().getBindingContext("TechnicalLocations").getObject();

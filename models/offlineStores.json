@@ -7,7 +7,7 @@
     "definingRequest": {
       "WorkOrderList": "/WorkOrderListSet?$filter=Gewrk eq '{WorkPlace}' {WorkOrders}",
       "WorkOrderGenObs": "/WorkOrderGenObsSet?$expand=WorkOrderGenObs_nav&$filter=Gewrk eq '{WorkPlace}'",
-      "WorkOrderLocSet": "/DefectsByLocSet?$expand=Def_Loc_nav/WOAttachmentSet_nav&$filter=Gewrk eq '{WorkPlace}'",
+      "WorkOrderLocSet": "/WorkOrderDefSet?$filter=Gewrk eq '{WorkPlace}'",
       "WorkOrderOpSet": "/WorkOrderOpSet?$expand=MeasuremDocSet_nav&$filter=Gewrk eq '{WorkPlace}'",
       "OperationNotifSet": "/WorkOrderOpNotificationSet?$filter=WorkPlace eq '{WorkPlace}' {WorkOrdersOperations}",
       "WONumListSet": "/WONumListSet?$expand=UbTecByWONumSet_nav&$filter=Gewrk eq '{WorkPlace}'",

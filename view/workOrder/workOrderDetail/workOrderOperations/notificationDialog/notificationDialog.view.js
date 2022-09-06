@@ -18,7 +18,7 @@ sap.ui.jsview("TransenerMovilidad.view.workOrder.workOrderDetail.workOrderOperat
             new sap.m.TextArea({
                 height:"160px",
                 width:"90%",
-                maxLength: 300,
+                maxLength: 260,
                 enabled: {
                     parts: ["WorkOrderModel>Notification/IsFinalNotif", "WorkOrderModel>/Estado"],
                     formatter: function (bIsFinalNotif, sOrderStatus) {

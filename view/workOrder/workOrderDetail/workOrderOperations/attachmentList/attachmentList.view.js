@@ -25,10 +25,10 @@ sap.ui.jsview("TransenerMovilidad.view.workOrder.workOrderDetail.workOrderOperat
                         hAlign: sap.ui.core.TextAlign.Center,
                         vAlign: sap.ui.core.VerticalAlign.Middle,
                     }),
-                    // new sap.m.Column({
-                    //     header: new sap.m.Text({text: ""}),
-                    //     hAlign: sap.ui.core.TextAlign.Center
-                    // }),
+                     new sap.m.Column({
+                         header: new sap.m.Text({text: ""}),
+                         hAlign: sap.ui.core.TextAlign.Center
+                     }),
                 ],
                 items: {
                     path: "AttachmentsModel>/Attachments",
@@ -36,10 +36,10 @@ sap.ui.jsview("TransenerMovilidad.view.workOrder.workOrderDetail.workOrderOperat
                         vAlign: sap.ui.core.VerticalAlign.Middle,
                         cells: [
                             new sap.m.Text({text: "{AttachmentsModel>Filename}"}),
-                            // new sap.m.Button({
-                            //     icon: "sap-icon://delete",
-                            //     press: [oController._deleteWOAttachment, oController]
-                            // })
+                             new sap.m.Button({
+                                 icon: "sap-icon://delete",
+                                 press: [oController._deleteWOAttachment, oController]
+                             })
                         ]
                     })
                 }

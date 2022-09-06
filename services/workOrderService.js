@@ -23,13 +23,13 @@ sap.ui.define([
             activityLogSet: "/ActivityLogSet",
             WODocAttachment: "/WODocAttachmentSet",
             PersonalHabilitado: "/PersonalHabilitadoSet",
-            WorkOrdersByWorkplace: "/OTByWorkPlaceSet"
+            WorkOrdersByWorkplace: "/OTByWorkPlaceSet",
+            DefectsAPSet: "/DefectsAPSet"
         },
 
         getServiceUri: function () {
             return offlineStore._oStoresConfig.workOrderStore.store.serviceUri
         },
-
 
         postAttachments: function (oAttachment) {
             return new Promise((resolve, reject) => {
@@ -221,8 +221,7 @@ sap.ui.define([
             }
             return "";
         },
-
-
+        //Esto está comentado
         getLastRecordedValue: function (oMeasuremPoint, aMeasurePoints) {
             let sMaxValue = this.getMaxValue(oMeasuremPoint, aMeasurePoints);
             if (sMaxValue) {
@@ -330,6 +329,44 @@ sap.ui.define([
             });
         },
 
+        getAps: function (iWorkOrder) { 
+            return new Promise((resolve, reject) => {
+                offlineStore.setHttpClient(true);
+                let aFilters = [
+                    window.ODataFilter.getExpression("Aufnr", window.ODataFilter.COMPARE.EQUAL, iWorkOrder),
+                ];
+                let oFilter = new window.ODataFilter(aFilters, window.ODataFilter.OPERATOR.AND).getFilter();
+                oDataService.read(this.getServiceUri(), this._entities.DefectsAPSet, "", "", oFilter)
+                    .then((response) => {
+                        resolve(response);
+                    })
+                    .catch((error) => {
+                        reject({
+                            msg: "Error en read del store",
+                            res: error
+                        })
+                    });
+            });
+        },
+
+        saveAps: function (oApsModel) {
+            return new Promise((resolve, reject) => {
+                const oModel = this.getModel();
+                offlineStore.setHttpClient(true);
+                oModel.create(this._entities.DefectsAPSet, oApsModel, {
+                    success: function () {
+                        resolve();
+                    },
+                    error: function (a) {
+                        reject({
+                            msg: "Error en read del store",
+                            res: a
+                        })
+                    }
+                });
+            });
+        },
+
         _getDefectUpdatePath: function (oDefect) {
             return oDefect.__metadata.uri.split("/")[4];
         },
@@ -359,12 +396,11 @@ sap.ui.define([
             return new Promise((resolve, reject) => {
                 offlineStore.setHttpClient(true);
                 let aFilters = [
-                    //TODO PREGUNTAR?
                     window.ODataFilter.getExpression("Asignar", window.ODataFilter.COMPARE.EQUAL, ""),
                     window.ODataFilter.getExpression("Maintloc", window.ODataFilter.COMPARE.EQUAL, sEmplazamiento)
                 ];
                 let oFilter = new window.ODataFilter(aFilters, window.ODataFilter.OPERATOR.AND).getFilter();
-                oDataService.read(this.getServiceUri(), this._entities.workOrderDefSet, "", "WOAttachmentSet_nav", oFilter)
+                oDataService.read(this.getServiceUri(), this._entities.workOrderDefSet, "", "", oFilter)
                     .then((response) => {
                         resolve(response.results);
                     })
@@ -386,7 +422,8 @@ sap.ui.define([
                     window.ODataFilter.getExpression("Aufnr", window.ODataFilter.COMPARE.EQUAL, "")
                 ];
                 let oFilter = new window.ODataFilter(aFilters, window.ODataFilter.OPERATOR.AND).getFilter();
-                oDataService.read(this.getServiceUri(), this._entities.workOrderDefSet, "", "WOAttachmentSet_nav", oFilter)
+                //oDataService.read(this.getServiceUri(), this._entities.workOrderDefSet, "", "WOAttachmentSet_nav", oFilter)
+                oDataService.read(this.getServiceUri(), this._entities.workOrderDefSet, "", "", oFilter)
                     .then((response) => {
                         resolve(response.results);
                     })
@@ -406,7 +443,7 @@ sap.ui.define([
                     window.ODataFilter.getExpression("Qmnum", window.ODataFilter.COMPARE.EQUAL, iDefectId),
                 ];
                 let oFilter = new window.ODataFilter(aFilters, window.ODataFilter.OPERATOR.AND).getFilter();
-                oDataService.read(this.getServiceUri(), this._entities.workOrderDefSet, "", "WOAttachmentSet_nav", oFilter)
+                oDataService.read(this.getServiceUri(), this._entities.workOrderDefSet, "", "", oFilter)
                     .then((response) => {
                         let oResponse = response.results.shift();
                         if (oResponse)
@@ -516,7 +553,6 @@ sap.ui.define([
             })
         },
 
-
         updateOTStatus: function (oWorkOrder) {
             return new Promise((resolve, reject) => {
                 const oModel = this.getModel();
@@ -534,7 +570,7 @@ sap.ui.define([
                 });
             })
         },
-        //
+        
         getOnlineModel: function () {
             return new sap.ui.model.odata.v2.ODataModel(
                 "https://" +
@@ -574,7 +610,6 @@ sap.ui.define([
                 });
             });
         },
-
 
         getOTByWorkplace: function (sGewrk) {
             return new Promise((resolve, reject) => {
