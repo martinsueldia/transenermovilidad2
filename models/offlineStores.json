@@ -5,7 +5,7 @@
     "sync": true,
     "i18nKey": "DownloadingWorkOrdersData",
     "definingRequest": {
-      "WorkOrderList": "/WorkOrderListSet?$filter=Gewrk eq '{WorkPlace}' {WorkOrders}",
+      "WorkOrderList": "/WorkOrderListSet?$filter=Gewrk eq '{WorkPlace}' and {WorkOrders}",
       "WorkOrderGenObs": "/WorkOrderGenObsSet?$expand=WorkOrderGenObs_nav&$filter=Gewrk eq '{WorkPlace}'",
       "WorkOrderLocSet": "/WorkOrderDefSet?$filter=Gewrk eq '{WorkPlace}'",
       "WorkOrderOpSet": "/WorkOrderOpSet?$expand=MeasuremDocSet_nav&$filter=Gewrk eq '{WorkPlace}'",
@@ -13,7 +13,8 @@
       "WONumListSet": "/WONumListSet?$expand=UbTecByWONumSet_nav&$filter=Gewrk eq '{WorkPlace}'",
       "WorkOrderBundles": "/PersonalHabilitadoSet",
       "ActivityLogSet": "/ActivityLogSet",
-      "WorkOrderAttachSet": "/WODocAttachmentSet?$filter={WorkOrdersAttach} and NoAttach eq true"
+      "WorkOrderAttachSet": "/WODocAttachmentSet?$filter={WorkOrdersAttach} and NoAttach eq true",
+      "DefectsAPSet": "/DefectsAPSet?$filter={WorkOrders}"
     },
     "refreshSubset": [
       "WorkOrderBundles",
@@ -44,9 +45,9 @@
     "i18nKey": "DownloadingAtsData",
     "definingRequest": {
       "ATSMasterSet": "/ATSMasterSet",
-      "ATSAssignmentSet": "/ATSAssignmentSet?$filter=Gewrk eq '{WorkPlace}' {WorkOrders}",
+      "ATSAssignmentSet": "/ATSAssignmentSet?$filter=Gewrk eq '{WorkPlace}' and {WorkOrders}",
       "SignatureATSSet": "/SignatureATSSet",
-      "HeaderATS": "/HeaderAtsSet?$filter=Gewrk eq '{WorkPlace}' {WorkOrders}",
+      "HeaderATS": "/HeaderAtsSet?$filter=Gewrk eq '{WorkPlace}' and {WorkOrders}",
       "MTSAssignment": "/MTSAssignmentSet"
     },
     "refreshSubset": [

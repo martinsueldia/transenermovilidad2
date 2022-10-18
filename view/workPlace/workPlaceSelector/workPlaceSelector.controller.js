@@ -208,7 +208,7 @@ sap.ui.define([
         },
 
         getOrdersQuery: function (aOrdersSelected) {
-            let s = "and (";
+            let s = "(";
             for (let i = 0; i < aOrdersSelected.length; i++) {
                 if (i === aOrdersSelected.length - 1) {
                     s += ' Aufnr eq ' + "'" + aOrdersSelected[i] + "')"

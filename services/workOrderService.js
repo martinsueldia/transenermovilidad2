@@ -10,21 +10,21 @@ sap.ui.define([
         _entities: {
             list: "/WorkOrderListSet",
             genObs: "/WorkOrderGenObsSet",
-            obsSet: "/WorkOrderObsSet",
+            obsSet: "/WorkOrderObsSet", // NO configurado
             WoOps: "/WorkOrderOpSet",
-            locSet: "/DefectsByLocSet",
+            locSet: "/DefectsByLocSet", // No se usa
             riskSet: "/HeaderAtsSet",
             workOrderDefSet: "/WorkOrderDefSet",
             workOrderOpSet: "/WorkOrderOpSet",
             workOrderNotifSet: "/WorkOrderOpNotificationSet",
             utByWorkOrder: "/WONumListSet",
-            WOAttachment: "/WOAttachmentSet",
+            WOAttachment: "/WOAttachmentSet", // Solo create
             measureDocSet: "/MeasuremDocSet",
             activityLogSet: "/ActivityLogSet",
             WODocAttachment: "/WODocAttachmentSet",
             PersonalHabilitado: "/PersonalHabilitadoSet",
-            WorkOrdersByWorkplace: "/OTByWorkPlaceSet",
-            DefectsAPSet: "/DefectsAPSet"
+            WorkOrdersByWorkplace: "/OTByWorkPlaceSet", // Read Online
+            DefectsAPSet: "/DefectsAPSet" // NO configurado
         },
 
         getServiceUri: function () {
@@ -349,21 +349,34 @@ sap.ui.define([
             });
         },
 
-        saveAps: function (oApsModel) {
+        _getApsFlagsUpdatePath: function (sWorkOrderNumber) {
+            return "(Aufnr='" + sWorkOrderNumber + "',Qmnum='')";
+        },
+
+        saveAps: function (oApsData, bCreate) {
             return new Promise((resolve, reject) => {
                 const oModel = this.getModel();
                 offlineStore.setHttpClient(true);
-                oModel.create(this._entities.DefectsAPSet, oApsModel, {
+                const mParameters = {
                     success: function () {
+                        console.log("Success saveApps");
                         resolve();
                     },
                     error: function (a) {
+                        console.log("Error saveApps");
                         reject({
                             msg: "Error en read del store",
                             res: a
                         })
                     }
-                });
+                };
+
+                if (bCreate) {
+                    oModel.create(this._entities.DefectsAPSet, oApsData, mParameters);
+                } else {
+                    const sPathToUpdate = this._getApsFlagsUpdatePath(oApsData.Aufnr);
+                    oModel.update(this._entities.DefectsAPSet + sPathToUpdate, oApsData, mParameters);
+                }
             });
         },
 

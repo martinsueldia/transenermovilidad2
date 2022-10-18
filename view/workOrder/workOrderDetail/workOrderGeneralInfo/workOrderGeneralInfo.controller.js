@@ -19,15 +19,17 @@ sap.ui.define([
         onInit: function () {
             this.oRouter = sap.ui.core.UIComponent.getRouterFor(this);
             this.oRouter.getRoute("WorkOrderDetail").attachPatternMatched(this._onObjectMatched, this);
+
+            this._iWorkOrderId = this.oRouter._oRouter._prevRoutes[0].params[0];
+            this._initializeModels(this._iWorkOrderId);
         },
 
         _onObjectMatched: function (oEvent) {
             var oArgs = oEvent.getParameter("arguments");
             this._iWorkOrderId = oArgs.workOrderId;
             let oQuery = oArgs["?query"];
-            if (oQuery.tab == "GeneralInformation") {
-                this._initializeModels(this._iWorkOrderId);              
-                this._initializeApsModel(this._iWorkOrderId);
+            if (oQuery.tab === "GeneralInformation") {
+                this._initializeModels(this._iWorkOrderId);
             } else {
                 this._cleanModels();
             }
@@ -39,27 +41,18 @@ sap.ui.define([
         },
 
         _initializeModels: function (iWorkOrderId) {
-            Promise.all([               
+            Promise.all([
                 WorkOrderService.getGenObs(iWorkOrderId),
-                WorkOrderService.getAps(iWorkOrderId),
-                WorkOrderService.getObservations(iWorkOrderId)                             
-            ]).then(([oWorkOrder, aObservations]) => {
+                WorkOrderService.getObservations(iWorkOrderId),
+                WorkOrderService.getAps(iWorkOrderId)
+            ]).then(([oWorkOrder, aObservations, aAps]) => {
                 this.createWorkOrderModel(oWorkOrder);
                 this.setObservations(aObservations);
+                this.setApsModel(aAps);
                 this._initObservationModel();
             }).catch((oError) => {
                 this.onGenObsError(oError);
             });
-        },
-
-        _initializeApsModel: async function (iWorkOrderId) {
-            try {
-                debugger;
-                const aData = await WorkOrderService.getAps(iWorkOrderId);
-            } catch (err) {
-                debugger;
-                sap.m.MessageToast.show("Error");              
-            }
         },
 
         createWorkOrderModel: function (oWorkOrder) {
@@ -75,8 +68,18 @@ sap.ui.define([
         setApsModel: function (aAps) {
             let oApsModel = new sap.ui.model.json.JSONModel();
             this.getView().setModel(oApsModel, "ApsModel");
-            oApsModel.setProperty("/Aps", aAps.results);
-            //oApsModel.setData({Aps: aAps.results});
+
+            const Aps = aAps.results.filter(aps => !!aps.Qmnun || !!aps.Tplnr || !!aps.Qmtxt);
+            oApsModel.setProperty("/Aps", Aps);
+
+            const oFlagsAps = aAps.results.find(aps => !aps.Qmnun && !aps.Tplnr && !aps.Qmtxt);
+            oApsModel.setProperty("/FlagsAps", oFlagsAps);
+
+            const Flag_Cc = oFlagsAps && oFlagsAps.Flag_Cc === "X";
+            oApsModel.setProperty("/Flag_Cc", Flag_Cc);
+
+            const Flag_Ap = oFlagsAps && oFlagsAps.Flag_Ap === "X";
+            oApsModel.setProperty("/Flag_Ap", Flag_Ap);
         },
 
         _initObservationModel: function () {
@@ -87,7 +90,7 @@ sap.ui.define([
                 "Observaciones": "",
                 "Userid": localStorage["user_logged"],
                 "Fecha": new Date()
-            }); 
+            });
             this.getView().setModel(oModel, "NewObservationModel");
         },
 
@@ -134,26 +137,41 @@ sap.ui.define([
         },
 
         _saveAps: function () {
-            let oApsTag = "";
-            if (this.getView().getModel("ApsModel").getProperty("/FlagCc") === true) {
-                oApsTag = this.getView().getModel("ApsModel").setProperty("/FlagCc", "CC");
-                this.getView().getModel("ApsModel").setProperty("/FlagAp", false);
-            } else if (this.getView().getModel("ApsModel").getProperty("/FlagAp") === true) {
-                oApsTag = this.getView().getModel("ApsModel").setProperty("/FlagAp", "AP");
-                this.getView().getModel("ApsModel").setProperty("/FlagCc", false);
-            }          
-            let oApsModel = this.getView().getModel("ApsModel").getData();
-            WorkOrderService.saveAps(oApsModel).then(
-                $.proxy(this._onSaveApsSuccess, this, oApsData),
+            const oApsModel = this.getView().getModel("ApsModel");
+
+            let oFlagsAps = oApsModel.getProperty("/FlagsAps");
+            const bCreateNewFlagsAps = !oFlagsAps;
+            if (bCreateNewFlagsAps) {
+                oFlagsAps = {
+                    Aufnr: this._iWorkOrderId,
+                    Flag_Cc: "",
+                    Flag_Ap: ""
+                };
+            }
+
+            let CCSelected = oApsModel.getProperty("/Flag_Cc") === true;
+            let APSelected = oApsModel.getProperty("/Flag_Ap") === true;
+
+            oFlagsAps.Flag_Cc = CCSelected ? "X" : "";
+            oFlagsAps.Flag_Ap = APSelected ? "X" : "";
+
+            oApsModel.setProperty("/FlagsAps", oFlagsAps);
+
+            let successMsgCC = CCSelected ? "Control de Cascada activado." : "Control de Cascada desactivado.";
+            let successMsgAP = APSelected ? "Cambio en Documentación activado." : "Cambio en Documentación desactivado.";
+            let successMsg = successMsgCC + "\n" + successMsgAP;
+
+            WorkOrderService.saveAps(oFlagsAps, bCreateNewFlagsAps).then(
+                $.proxy(this._onSaveApsSuccess, this, successMsg),
                 $.proxy(this._onSaveApsError, this)
             );
         },
-       
-        _onSaveApsSuccess: function () {           
+
+        _onSaveApsSuccess: function (successMsg) {
             Dialog.openMsgDialog({
-                "title": "Correcto",
+                "title": "Cambios guardados correctamente",
                 "content": new sap.m.Text({
-                    text: "El APS ha sido guardado correctamente."
+                    text: successMsg
                 }),
                 "models": []
             });
@@ -162,10 +180,11 @@ sap.ui.define([
         _onSaveApsError: function () {
             Dialog.openMsgDialog({
                 "title": "Error",
-                "content": new sap.m.Text({text: "Ha ocurrido un error al guardar el APS."}),
+                "content": new sap.m.Text({text: "Ha ocurrido un error al guardar el Aviso de Planoteca."}),
                 "models": []
             });
         },
+
 
         _woIsFinished: function (sStatus) {
             return WOHelper.workOrderIsFinished(sStatus)

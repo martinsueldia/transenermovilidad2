@@ -200,7 +200,7 @@ module.exports = function (grunt) {
     grunt.registerTask("generarAPK", '', function (versionXML) {
         if (grunt.option("env") && grunt.option('versionAPK')) {
             grunt.log.write('TRANSENEER MOVILIDAD APK VERSION N° ------> ' + grunt.option("versionAPK"));
-            grunt.task.run('downloadChangesFromGit');
+            //grunt.task.run('downloadChangesFromGit');
             grunt.task.run('changeProjectUrlConfiguration');
             grunt.task.run('just-copy');
             grunt.task.run('changeVersion');

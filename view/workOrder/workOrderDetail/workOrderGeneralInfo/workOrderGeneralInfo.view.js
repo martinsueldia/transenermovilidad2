@@ -201,16 +201,17 @@ sap.ui.jsview("TransenerMovilidad.view.workOrder.workOrderDetail.workOrderGenera
                     new sap.m.VBox({
                       items: [
                         new sap.m.HBox({
+                          alignItems: sap.m.FlexAlignItems.Center,
                           items: [
                             new sap.m.CheckBox({
                               id: "checkCC",
                               text: "Control de cascada",
-                              selected: "{ApsModel>/FlagCc}"
+                              selected: "{ApsModel>/Flag_Cc}"
                             }),
                             new sap.m.CheckBox({
                               id: "checkAP",
                               text: "Cambio en documentacion",
-                              selected: "{ApsModel>/FlagAp}"
+                              selected: "{ApsModel>/Flag_Ap}"
                             }),
                             new sap.m.Button({
                               text: "{i18n>Save}",
@@ -242,7 +243,7 @@ sap.ui.jsview("TransenerMovilidad.view.workOrder.workOrderDetail.workOrderGenera
                             sorter: new sap.ui.model.Sorter("Qmnum", false, false),
                             template: new sap.m.ColumnListItem({
                               cells: [
-                                new sap.m.Text({ text: "{ApsModel>Qmnun}" }),
+                                new sap.m.Text({ text: "{ApsModel>Qmnum}" }),
                                 new sap.m.Text({ text: "{ApsModel>Tplnr}" }),
                                 new sap.m.Text({ text: "{ApsModel>Qmtxt}" })
                               ]
@@ -265,7 +266,7 @@ sap.ui.jsview("TransenerMovilidad.view.workOrder.workOrderDetail.workOrderGenera
                             formatter: $.proxy(oController._woIsFinished, oController)
                           },
                           press: [oController._saveObservation, oController],
-                          icon: "sap-icon://accept"
+                          // icon: "sap-icon://accept"
                         }).addStyleClass("button-menu").addStyleClass("sapUiTinyMarginEnd")
                       ]
                     }).addStyleClass("container-with-button")
