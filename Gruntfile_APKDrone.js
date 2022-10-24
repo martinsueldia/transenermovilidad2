@@ -6,17 +6,20 @@ module.exports = function (grunt) {
      */
     $RootFolder = 'C:/Users/dpalavecino/Desktop/Transener';
 
-    $DestFolders = $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/www';
-    $DestFoldersENV = $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/www/models';
-    $VersionDESTFile = $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/config.xml';
+    $DestFolders = $RootFolder + '/movilidad_drone/platforms/android/assets/www';
+    $DestProjectFolder = $RootFolder + '/movilidad_drone/www';
+
+    $DestFoldersENV = $RootFolder + '/movilidad_drone/platforms/android/assets/www/models';
+    $FoldersEnvProject = $RootFolder + '/movilidad_drone/www/models';
+
+
+    $VersionDESTFile = $RootFolder + '/movilidad_drone/platforms/android/AndroidManifest.xml';
     $DestFolderGit = $RootFolder + '/transenermovilidad';
     $SrcFolders = ['css/**', 'helpers/**', 'i18n/**', 'img/**', 'less/**', 'mock_data/**', 'models/**', 'services/**', 'view/**'];
     $ReleaseCopyFolders = ['css/**', 'i18n/**', 'img/**', 'less/**', 'mock_data/**', 'models/**', 'services/**'];
 
-    $CopyAllFolders = ['css/**', 'helpers/**', 'i18n/**', 'img/**', 'lib/**', 'mock_data/**', 'models/**', 'services/**', 'view/**'];
-
     $XmlpokeFile = {};
-    $XmlpokeFile[$RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/config.xml'] = $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/config.xml';
+    $XmlpokeFile[$RootFolder + '/movilidad_drone/config.xml'] = $RootFolder + '/movilidad_drone/config.xml';
 
     grunt.initConfig({
             ruta: $DestFolders,
@@ -30,6 +33,18 @@ module.exports = function (grunt) {
                 },
             },
             copy: {
+                just: {
+                    expand: true,
+                    cwd: './',
+                    src: $SrcFolders,
+                    dest: $DestFolders
+                },
+                justCopyProject: {
+                    expand: true,
+                    cwd: './',
+                    src: $SrcFolders,
+                    dest: $DestProjectFolder
+                },
                 main: {
                     expand: true,
                     cwd: './',
@@ -45,7 +60,7 @@ module.exports = function (grunt) {
                 build: {
                     expand: true,
                     cwd: './',
-                    src: $CopyAllFolders,
+                    src: ['helpers/**', 'view/**'],
                     dest: $DestFolders
                 },
                 resourcesForBuild: {
@@ -63,22 +78,31 @@ module.exports = function (grunt) {
                         return dest + "/env.json";
                     }
                 },
+                env_project: {
+                    expand: true,
+                    cwd: './',
+                    src: ["models/env_" + grunt.option("env") + ".json"],
+                    dest: $FoldersEnvProject,
+                    rename: function (dest, src) {
+                        return dest + "/env.json";
+                    }
+                },
                 renameDebug: {
                     expand: true,
                     cwd: './',
-                    src: [$RootFolder + "/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/platforms/android/app/build/outputs/apk/debug/app-debug.apk"],
+                    src: [$RootFolder + "/movilidad_drone/platforms/android/build/outputs/apk/debug/android-debug.apk"],
                     dest: $DestFoldersENV,
                     rename: function (dest, src) {
-                        return $RootFolder + "/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/platforms/android/app/build/outputs/apk/debug/" + grunt.option("versionAPK") + "-" + grunt.option("env") + "-noRelease.apk";
+                        return $RootFolder + "/movilidad_drone/platforms/android/build/outputs/apk/debug/" + grunt.option("versionAPK") + "-" + grunt.option("env") + "-noRelease.apk";
                     }
                 },
                 renameRelease: {
                     expand: true,
                     cwd: './',
-                    src: [$RootFolder + "/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/platforms/android/app/build/outputs/apk/release/app-release.apk"],
+                    src: [$RootFolder + "/movilidad_drone/platforms/android/build/outputs/apk/release/android-release.apk"],
                     dest: $DestFoldersENV,
                     rename: function (dest, src) {
-                        return $RootFolder + "/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/platforms/android/app/build/outputs/apk/release/" + grunt.option("versionAPK") + "-" + grunt.option("env") + "-release.apk";
+                        return $RootFolder + "/movilidad_drone/platforms/android/build/outputs/apk/release/" + grunt.option("versionAPK") + "-" + grunt.option("env") + "-release.apk";
                     }
                 }
 
@@ -87,37 +111,32 @@ module.exports = function (grunt) {
                 multiple: {
                     command: [
                         'cd /',
-                        'cd ' + $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/www',
+                        'cd C:/Users/dpalavecino/Desktop/Transener/www',
                         'cordova build android --release -- --keystore=C:/TransenerMovilidad.jks --storePassword=tatovp22 --alias=TransenerMovilidad --password=tatovp22'
                     ].join('&&')
                 },
                 openDir: {
                     command: [
-                        'start ' + $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/platforms/android/app/build/outputs/apk/debug'
+                        'start ' + $RootFolder + '/movilidad_drone/platforms/android/build/outputs/apk/release'
                     ].join('&&')
                 },
-                openDirRelease: {
+                gitPull: {
                     command: [
-                        'start ' + $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/platforms/android/app/build/outputs/apk/release'
+                        'cd ' + $RootFolder + '/transenermovilidad',
+                        'git pull origin develop'
                     ].join('&&')
                 },
-               // gitPull: {
-                //    command: [
-                //        'cd ' + $RootFolder + '/transenermovilidad',
-                //        'git pull origin develop'
-                //    ].join('&&')
-                //},
                 build: {
                     command: [
                         'cd /',
-                        'cd ' + $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/www',
+                        'cd C:/Users/dpalavecino/Desktop/Transener/www',
                         'cordova build android'
                     ].join('&&')
                 },
                 buildRelease: {
                     command: [
                         'cd /',
-                        'cd ' + $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/www',
+                        'cd C:/Users/dpalavecino/Desktop/Transener/www',
                         'cordova build android --release -- --keystore=C:/TransenerMovilidad.jks --storePassword=tatovp22 --alias=TransenerMovilidad --password=tatovp22'
                     ].join('&&')
                 },
@@ -162,7 +181,14 @@ module.exports = function (grunt) {
             },
             replace_json: {
                 hybrid: {
-                    src: $RootFolder + '/movilidad_no_drone/SAPHybrid/transenermovilidad/hybrid/www/project.json',
+                    src: $RootFolder + '/movilidad_drone/platforms/android/assets/www/project.json',
+                    changes: {
+                        "hybrid.server": grunt.option("env") === "qas" ? "mobile-da40b6a1b.us2.hana.ondemand.com" : "mobile-dfa572922.us2.hana.ondemand.com",
+                        "hybrid.hcpmsServer": grunt.option("env") === "qas" ? "mobile-da40b6a1b.us2.hana.ondemand.com" : "mobile-dfa572922.us2.hana.ondemand.com"
+                    }
+                },
+                hybrid_project: {
+                    src: $RootFolder + '/movilidad_drone/www/project.json',
                     changes: {
                         "hybrid.server": grunt.option("env") === "qas" ? "mobile-da40b6a1b.us2.hana.ondemand.com" : "mobile-dfa572922.us2.hana.ondemand.com",
                         "hybrid.hcpmsServer": grunt.option("env") === "qas" ? "mobile-da40b6a1b.us2.hana.ondemand.com" : "mobile-dfa572922.us2.hana.ondemand.com"
@@ -181,39 +207,34 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-replace-json');
 
     grunt.registerTask('default', ['watch']);
-    // grunt.registerTask('buildForAndroid', ['uglify', 'copy:main', 'copy:release', 'shell:multiple', 'clean']);
-    // grunt.registerTask('release', ['uglify', 'copy:main', 'copy:release', 'shell', 'clean']);
-    // grunt.registerTask('buildAndRelease', ['copy:', 'copy:build', 'shell', 'clean']);
-    // grunt.registerTask('buildQAS', ['copy:env', 'copy:build']);
-    grunt.registerTask('setEnvironment', ['copy:env']);
-    grunt.registerTask('changeVersion', ['xmlpoke']);
-    grunt.registerTask('downloadChangesFromGit');//, //['shell:gitPull']);
-    grunt.registerTask('build', ['shell:build', 'copy:renameDebug']);
-    grunt.registerTask('build-release', ['uglify', 'shell:buildRelease', 'copy:renameRelease', 'clean']);
-    // grunt.registerTask('build-release2', ['shell:build', 'copy:renameRelease', 'clean']);
-    grunt.registerTask("changeProjectUrlConfiguration", ['replace_json']);
+    grunt.registerTask('buildForAndroid', ['uglify', 'copy:main', 'copy:release', 'shell:multiple', 'clean']);
+    grunt.registerTask('release', ['uglify', 'copy:main', 'copy:release', 'shell', 'clean']);
+    grunt.registerTask('buildAndRelease', ['copy:', 'copy:build', 'shell', 'clean']);
+    grunt.registerTask('buildQAS', ['copy:env', 'copy:build']);
+    grunt.registerTask('downloadChangesFromGit', ['shell:gitPull']);
+    grunt.registerTask('build', ['copy:build']);
+    grunt.registerTask('build-release', ['uglify', 'copy:build', 'shell:buildRelease', 'copy:renameRelease', 'clean']);
+    grunt.registerTask('build-release2', ['shell:build', 'copy:renameRelease', 'clean']);
     grunt.registerTask("openDir", ["shell:openDir"]);
-    grunt.registerTask("openDirRelease", ["shell:openDirRelease"]);
-    // grunt.registerTask("ugly-solo",["uglify"]);
-    grunt.registerTask("just-copy",["copy:build"]);
+    grunt.registerTask("ugly-solo",["uglify"]);
+    grunt.registerTask("just-copy",["copy:just"]);
+
+    grunt.registerTask("changeProjectUrlConfiguration", ['replace_json']);
+    grunt.registerTask('setEnvironment', ['copy:env']);
+    // Used
+    grunt.registerTask("change-project-url-config", ['replace_json:hybrid']);
+    grunt.registerTask('changeVersion', ['xmlpoke']);
+    grunt.registerTask('set-environment', ['copy:env']);
+    grunt.registerTask("just-copy-project",["copy:just"]);
 
     grunt.registerTask("generarAPK", '', function (versionXML) {
         if (grunt.option("env") && grunt.option('versionAPK')) {
             grunt.log.write('TRANSENEER MOVILIDAD APK VERSION N° ------> ' + grunt.option("versionAPK"));
-            //grunt.task.run('downloadChangesFromGit');
-            grunt.task.run('changeProjectUrlConfiguration');
-            grunt.task.run('just-copy');
+            grunt.task.run('change-project-url-config');
             grunt.task.run('changeVersion');
-            grunt.task.run('setEnvironment');
-            if (grunt.option("release")) {
-                grunt.log.write('RELEASE ON');
-                grunt.task.run('build-release');
-                grunt.task.run('openDirRelease');
-            } else {
-                grunt.log.write('RELEASE OFF');
-                grunt.task.run('build');
-                grunt.task.run('openDir');
-            }
+            grunt.task.run('just-copy-project');
+            grunt.task.run('set-environment');
+            grunt.log.write('TRANSENEER MOVILIDAD APK VERSION N° ------> ' + grunt.option("versionAPK"));
         }
         else {
             grunt.log.error("NO SE HAN PASADO LOS PARAMETROS CORRECTOS");

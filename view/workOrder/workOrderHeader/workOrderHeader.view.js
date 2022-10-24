@@ -52,7 +52,7 @@ sap.ui.jsview("TransenerMovilidad.view.workOrder.workOrderHeader.workOrderHeader
                         new sap.m.FlexBox({
                             items: [
                                 new sap.m.Text({
-                                    text: "v1.1.19"
+                                    text: "v4.4.4"
                                 }).addStyleClass("sapUiSmallMarginBegin"),
                             ]
                         }),
